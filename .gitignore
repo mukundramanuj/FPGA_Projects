@@ -1,5 +1,6 @@
 # Quartus-generated folders
 db/
+work/
 incremental_db/
 simulation/
 greybox_tmp/
@@ -18,3 +19,7 @@ _output_files/
 *.qws
 *.smsg
 *.flock
+*.wlf
+transcript
+*.mti
+*.mpf
