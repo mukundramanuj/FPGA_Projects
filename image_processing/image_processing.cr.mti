@@ -1,0 +1,5 @@
+C:/Users/Mukund/Documents/FPGA_Projects/image_processing/imageControl.v {0 {vlog -work work -stats=none C:/Users/Mukund/Documents/FPGA_Projects/image_processing/imageControl.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+** Error: (vlog-13069) C:/Users/Mukund/Documents/FPGA_Projects/image_processing/imageControl.v(1): near "(": syntax error, unexpected '('.
+
+} {3.0 4.0} {}}

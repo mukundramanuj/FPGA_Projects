@@ -1,0 +1,18 @@
+Fitter Status : Successful - Wed Dec 31 13:37:30 2025
+Quartus Prime Version : 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
+Revision Name : vga_mif
+Top-level Entity Name : vga_mif
+Family : MAX 10
+Device : 10M50DAF484C7G
+Timing Models : Final
+Total logic elements : 390 / 49,760 ( < 1 % )
+    Total combinational functions : 386 / 49,760 ( < 1 % )
+    Dedicated logic registers : 52 / 49,760 ( < 1 % )
+Total registers : 52
+Total pins : 23 / 360 ( 6 % )
+Total virtual pins : 0
+Total memory bits : 786,432 / 1,677,312 ( 47 % )
+Embedded Multiplier 9-bit elements : 0 / 288 ( 0 % )
+Total PLLs : 1 / 4 ( 25 % )
+UFM blocks : 0 / 1 ( 0 % )
+ADC blocks : 0 / 2 ( 0 % )

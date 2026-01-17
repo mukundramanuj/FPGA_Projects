@@ -1,0 +1,677 @@
+!SESSION 2026-01-12 23:57:01.996 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=21.0.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-01-12 23:59:11.923
+!MESSAGE Indexed 'app' (0 sources, 0 headers) in 0.15 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 4 0 2026-01-13 00:01:07.706
+!MESSAGE Error: org/slf4j/LoggerFactory
+!STACK 0
+java.lang.NoClassDefFoundError: org/slf4j/LoggerFactory
+	at org.eclipse.jetty.util.log.Log.getLogger(Log.java:31)
+	at org.eclipse.jetty.util.ajax.JSON.<clinit>(JSON.java:90)
+	at de.marw.cmake.cdt.language.settings.providers.CompileCommandsJsonParser.tryParseJson(CompileCommandsJsonParser.java:258)
+	at de.marw.cmake.cdt.language.settings.providers.CompileCommandsJsonParser.shutdown(CompileCommandsJsonParser.java:612)
+	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer.closeConsoleOutputStream(ConsoleOutputSniffer.java:162)
+	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer$ConsoleOutputStream.close(ConsoleOutputSniffer.java:70)
+	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.close(ProcessClosure.java:101)
+	at org.eclipse.cdt.internal.core.ProcessClosure.isAlive(ProcessClosure.java:194)
+	at org.eclipse.cdt.core.CommandLauncher.waitAndRead(CommandLauncher.java:248)
+	at org.eclipse.cdt.core.CommandLauncherManager$CommandLauncherWrapper.waitAndRead(CommandLauncherManager.java:161)
+	at org.eclipse.cdt.internal.core.BuildRunnerHelper.build(BuildRunnerHelper.java:284)
+	at org.eclipse.cdt.managedbuilder.core.ExternalBuildRunner.invokeExternalBuild(ExternalBuildRunner.java:140)
+	at org.eclipse.cdt.managedbuilder.core.ExternalBuildRunner.invokeBuild(ExternalBuildRunner.java:73)
+	at de.marw.cdt.cmake.core.internal.CMakeBuildRunner.invokeBuild(CMakeBuildRunner.java:129)
+	at org.eclipse.cdt.managedbuilder.internal.core.CommonBuilder.build(CommonBuilder.java:783)
+	at org.eclipse.cdt.managedbuilder.internal.core.CommonBuilder.build(CommonBuilder.java:533)
+	at org.eclipse.cdt.managedbuilder.internal.core.CommonBuilder.build(CommonBuilder.java:471)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:1077)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:296)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:352)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:441)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:444)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:555)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:503)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:585)
+	at org.eclipse.core.internal.resources.Workspace.buildInternal(Workspace.java:594)
+	at org.eclipse.core.internal.resources.Workspace.build(Workspace.java:490)
+	at org.eclipse.ui.actions.BuildAction$1.runInWorkspace(BuildAction.java:288)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:43)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.lang.ClassNotFoundException: org.slf4j.LoggerFactory cannot be found by de.marw.cmake.cdt_1.2.1.202505081337
+	at org.eclipse.osgi.internal.loader.BundleLoader.generateException(BundleLoader.java:562)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass0(BundleLoader.java:557)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:434)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:174)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526)
+	... 32 more
+
+!ENTRY com.ashling.riscfree.debug.utils 1 0 2026-01-13 00:07:39.382
+!MESSAGE Scanning debug probes
+
+!ENTRY com.ashling.riscfree.debug.utils 1 0 2026-01-13 00:07:39.608
+!MESSAGE DebugProbe [deviceName=USB-Blaster-2, serialNumber=1, displayName=USB-Blaster [USB-0], probeType=null]
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-01-13 00:13:07.660
+!MESSAGE Indexed 'app' (3 sources, 0 headers) in 0.049 sec: 20 declarations; 386 references; 1 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY com.ashling.riscfree.debug.utils 1 0 2026-01-13 00:18:48.214
+!MESSAGE Scanning debug probes
+
+!ENTRY com.ashling.riscfree.debug.utils 1 0 2026-01-13 00:18:48.402
+!MESSAGE DebugProbe [deviceName=USB-Blaster-2, serialNumber=1, displayName=USB-Blaster [USB-0], probeType=null]
+
+!ENTRY com.ashling.riscfree.debug.utils 1 0 2026-01-13 00:19:48.625
+!MESSAGE Scanning debug probes
+
+!ENTRY com.ashling.riscfree.debug.utils 1 0 2026-01-13 00:19:48.753
+!MESSAGE DebugProbe [deviceName=USB-Blaster-2, serialNumber=1, displayName=USB-Blaster [USB-0], probeType=null]
+
+!ENTRY com.ashling.riscfree.debug.utils 1 0 2026-01-13 00:23:18.454
+!MESSAGE Scanning debug probes
+
+!ENTRY com.ashling.riscfree.debug.utils 1 0 2026-01-13 00:23:18.669
+!MESSAGE DebugProbe [deviceName=USB-Blaster-2, serialNumber=1, displayName=USB-Blaster [USB-0], probeType=null]
+
+!ENTRY com.ashling.riscfree.debug.utils 1 0 2026-01-13 00:25:00.534
+!MESSAGE Scanning debug probes
+
+!ENTRY com.ashling.riscfree.debug.utils 1 0 2026-01-13 00:25:00.711
+!MESSAGE DebugProbe [deviceName=USB-Blaster-2, serialNumber=1, displayName=USB-Blaster [USB-0], probeType=null]
+
+!ENTRY com.ashling.riscfree.debug.opxd 1 0 2026-01-13 00:25:01.150
+!MESSAGE GDB SERVER COMMAND :C:\altera_lite\25.1std\riscfree\debugger\gdbserver-riscv\ash-riscv-gdb-server.exe --probe-type usb-blaster-2 --transport-type jtag --device  --auto-detect true --gdb-port 56756 --jtag-frequency 16000KHz --tap-number 1 --instance 1 --attach-mode OFF
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2026-01-13 00:25:01.342
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitorWithProgress@351a28a4): Status ERROR: com.ashling.riscfree.debug.opxd code=0 
+Ashling GDB Server for RISC-V (ash-riscv-gdb-server).
+v25.2.1, 09-May-2025, (c)Ashling Microsystems Ltd 2024.
+
+Error: Missing device name after --device option.
+Error: 
+ org.eclipse.core.runtime.CoreException: 
+Ashling GDB Server for RISC-V (ash-riscv-gdb-server).
+v25.2.1, 09-May-2025, (c)Ashling Microsystems Ltd 2024.
+
+Error: Missing device name after --device option.
+Error: 
+' resulted in an error.
+!SUBENTRY 1 com.ashling.riscfree.debug.opxd 4 0 2026-01-13 00:25:01.342
+!MESSAGE 
+Ashling GDB Server for RISC-V (ash-riscv-gdb-server).
+v25.2.1, 09-May-2025, (c)Ashling Microsystems Ltd 2024.
+
+Error: Missing device name after --device option.
+Error: 
+
+!STACK 1
+org.eclipse.core.runtime.CoreException: 
+Ashling GDB Server for RISC-V (ash-riscv-gdb-server).
+v25.2.1, 09-May-2025, (c)Ashling Microsystems Ltd 2024.
+
+Error: Missing device name after --device option.
+Error: 
+
+	at com.ashling.riscfree.debug.opxd.dsf.GdbServerBackend.launchGdbServerProcess(GdbServerBackend.java:361)
+	at com.ashling.riscfree.debug.opxd.dsf.GdbServerBackend$GdbServerStep$2.run(GdbServerBackend.java:763)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 2 com.ashling.riscfree.debug.opxd 4 0 2026-01-13 00:25:01.343
+!MESSAGE 
+Ashling GDB Server for RISC-V (ash-riscv-gdb-server).
+v25.2.1, 09-May-2025, (c)Ashling Microsystems Ltd 2024.
+
+Error: Missing device name after --device option.
+Error: 
+
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2026-01-13 00:25:01.350
+!MESSAGE Error in GDB server launch sequence
+!STACK 1
+org.eclipse.core.runtime.CoreException: 
+Ashling GDB Server for RISC-V (ash-riscv-gdb-server).
+v25.2.1, 09-May-2025, (c)Ashling Microsystems Ltd 2024.
+
+Error: Missing device name after --device option.
+Error: 
+
+	at org.eclipse.cdt.dsf.concurrent.Sequence.abortExecution(Sequence.java:599)
+	at org.eclipse.cdt.dsf.concurrent.Sequence$2.handleErrorOrWarning(Sequence.java:448)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.handleFailure(RequestMonitor.java:433)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.handleCompleted(RequestMonitor.java:393)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor$2.run(RequestMonitor.java:317)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.eclipse.core.runtime.CoreException: 
+Ashling GDB Server for RISC-V (ash-riscv-gdb-server).
+v25.2.1, 09-May-2025, (c)Ashling Microsystems Ltd 2024.
+
+Error: Missing device name after --device option.
+Error: 
+
+	at com.ashling.riscfree.debug.opxd.dsf.GdbServerBackend.launchGdbServerProcess(GdbServerBackend.java:361)
+	at com.ashling.riscfree.debug.opxd.dsf.GdbServerBackend$GdbServerStep$2.run(GdbServerBackend.java:763)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 com.ashling.riscfree.debug.opxd 4 0 2026-01-13 00:25:01.350
+!MESSAGE 
+Ashling GDB Server for RISC-V (ash-riscv-gdb-server).
+v25.2.1, 09-May-2025, (c)Ashling Microsystems Ltd 2024.
+
+Error: Missing device name after --device option.
+Error: 
+
+!STACK 1
+org.eclipse.core.runtime.CoreException: 
+Ashling GDB Server for RISC-V (ash-riscv-gdb-server).
+v25.2.1, 09-May-2025, (c)Ashling Microsystems Ltd 2024.
+
+Error: Missing device name after --device option.
+Error: 
+
+	at com.ashling.riscfree.debug.opxd.dsf.GdbServerBackend.launchGdbServerProcess(GdbServerBackend.java:361)
+	at com.ashling.riscfree.debug.opxd.dsf.GdbServerBackend$GdbServerStep$2.run(GdbServerBackend.java:763)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 2 com.ashling.riscfree.debug.opxd 4 0 2026-01-13 00:25:01.350
+!MESSAGE 
+Ashling GDB Server for RISC-V (ash-riscv-gdb-server).
+v25.2.1, 09-May-2025, (c)Ashling Microsystems Ltd 2024.
+
+Error: Missing device name after --device option.
+Error: 
+
+
+!ENTRY com.ashling.riscfree.debug.utils 1 0 2026-01-13 00:25:18.741
+!MESSAGE Scanning debug probes
+
+!ENTRY com.ashling.riscfree.debug.utils 1 0 2026-01-13 00:25:18.854
+!MESSAGE DebugProbe [deviceName=USB-Blaster-2, serialNumber=1, displayName=USB-Blaster [USB-0], probeType=null]
+
+!ENTRY com.ashling.riscfree.debug.opxd 1 0 2026-01-13 00:25:19.020
+!MESSAGE GDB SERVER COMMAND :C:\altera_lite\25.1std\riscfree\debugger\gdbserver-riscv\ash-riscv-gdb-server.exe --probe-type usb-blaster-2 --transport-type jtag --device  --auto-detect true --gdb-port 51018 --jtag-frequency 16000KHz --tap-number 1 --instance 1 --attach-mode OFF
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2026-01-13 00:25:19.186
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitorWithProgress@52a2c27f): Status ERROR: com.ashling.riscfree.debug.opxd code=0 
+Ashling GDB Server for RISC-V (ash-riscv-gdb-server).
+v25.2.1, 09-May-2025, (c)Ashling Microsystems Ltd 2024.
+
+Error: Missing device name after --device option.
+Error: 
+ org.eclipse.core.runtime.CoreException: 
+Ashling GDB Server for RISC-V (ash-riscv-gdb-server).
+v25.2.1, 09-May-2025, (c)Ashling Microsystems Ltd 2024.
+
+Error: Missing device name after --device option.
+Error: 
+' resulted in an error.
+!SUBENTRY 1 com.ashling.riscfree.debug.opxd 4 0 2026-01-13 00:25:19.187
+!MESSAGE 
+Ashling GDB Server for RISC-V (ash-riscv-gdb-server).
+v25.2.1, 09-May-2025, (c)Ashling Microsystems Ltd 2024.
+
+Error: Missing device name after --device option.
+Error: 
+
+!STACK 1
+org.eclipse.core.runtime.CoreException: 
+Ashling GDB Server for RISC-V (ash-riscv-gdb-server).
+v25.2.1, 09-May-2025, (c)Ashling Microsystems Ltd 2024.
+
+Error: Missing device name after --device option.
+Error: 
+
+	at com.ashling.riscfree.debug.opxd.dsf.GdbServerBackend.launchGdbServerProcess(GdbServerBackend.java:361)
+	at com.ashling.riscfree.debug.opxd.dsf.GdbServerBackend$GdbServerStep$2.run(GdbServerBackend.java:763)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 2 com.ashling.riscfree.debug.opxd 4 0 2026-01-13 00:25:19.187
+!MESSAGE 
+Ashling GDB Server for RISC-V (ash-riscv-gdb-server).
+v25.2.1, 09-May-2025, (c)Ashling Microsystems Ltd 2024.
+
+Error: Missing device name after --device option.
+Error: 
+
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2026-01-13 00:25:19.188
+!MESSAGE Error in GDB server launch sequence
+!STACK 1
+org.eclipse.core.runtime.CoreException: 
+Ashling GDB Server for RISC-V (ash-riscv-gdb-server).
+v25.2.1, 09-May-2025, (c)Ashling Microsystems Ltd 2024.
+
+Error: Missing device name after --device option.
+Error: 
+
+	at org.eclipse.cdt.dsf.concurrent.Sequence.abortExecution(Sequence.java:599)
+	at org.eclipse.cdt.dsf.concurrent.Sequence$2.handleErrorOrWarning(Sequence.java:448)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.handleFailure(RequestMonitor.java:433)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.handleCompleted(RequestMonitor.java:393)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor$2.run(RequestMonitor.java:317)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.eclipse.core.runtime.CoreException: 
+Ashling GDB Server for RISC-V (ash-riscv-gdb-server).
+v25.2.1, 09-May-2025, (c)Ashling Microsystems Ltd 2024.
+
+Error: Missing device name after --device option.
+Error: 
+
+	at com.ashling.riscfree.debug.opxd.dsf.GdbServerBackend.launchGdbServerProcess(GdbServerBackend.java:361)
+	at com.ashling.riscfree.debug.opxd.dsf.GdbServerBackend$GdbServerStep$2.run(GdbServerBackend.java:763)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 com.ashling.riscfree.debug.opxd 4 0 2026-01-13 00:25:19.188
+!MESSAGE 
+Ashling GDB Server for RISC-V (ash-riscv-gdb-server).
+v25.2.1, 09-May-2025, (c)Ashling Microsystems Ltd 2024.
+
+Error: Missing device name after --device option.
+Error: 
+
+!STACK 1
+org.eclipse.core.runtime.CoreException: 
+Ashling GDB Server for RISC-V (ash-riscv-gdb-server).
+v25.2.1, 09-May-2025, (c)Ashling Microsystems Ltd 2024.
+
+Error: Missing device name after --device option.
+Error: 
+
+	at com.ashling.riscfree.debug.opxd.dsf.GdbServerBackend.launchGdbServerProcess(GdbServerBackend.java:361)
+	at com.ashling.riscfree.debug.opxd.dsf.GdbServerBackend$GdbServerStep$2.run(GdbServerBackend.java:763)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 2 com.ashling.riscfree.debug.opxd 4 0 2026-01-13 00:25:19.188
+!MESSAGE 
+Ashling GDB Server for RISC-V (ash-riscv-gdb-server).
+v25.2.1, 09-May-2025, (c)Ashling Microsystems Ltd 2024.
+
+Error: Missing device name after --device option.
+Error: 
+
+
+!ENTRY com.ashling.riscfree.debug.utils 1 0 2026-01-13 00:27:13.999
+!MESSAGE Scanning debug probes
+
+!ENTRY com.ashling.riscfree.debug.utils 1 0 2026-01-13 00:27:14.214
+!MESSAGE DebugProbe [deviceName=USB-Blaster-2, serialNumber=1, displayName=USB-Blaster [USB-0], probeType=null]
+
+!ENTRY com.ashling.riscfree.debug.utils 1 0 2026-01-13 00:28:16.976
+!MESSAGE Detecting scan chain for serial number=1 jtagFreq=16000KHz tapReset=1
+
+!ENTRY com.ashling.riscfree.debug.utils 1 0 2026-01-13 00:28:17.103
+!MESSAGE TapDetails [tapNumber=1, irLength=10, idCode=51400925, name=10M50DA(.|ES)/10M50DC, numberOfCores=1, decimalNumberSystem=false]
+
+!ENTRY com.ashling.riscfree.debug.utils 1 0 2026-01-13 00:28:17.113
+!MESSAGE CoreDetails [coreId=144207360, isAutodected = true, name=Nios V, coreIndexInTap=0, coreIndexInDevice=0]
+
+!ENTRY com.ashling.riscfree.debug.utils 1 0 2026-01-13 00:28:35.421
+!MESSAGE Scanning debug probes
+
+!ENTRY com.ashling.riscfree.debug.utils 1 0 2026-01-13 00:28:35.531
+!MESSAGE DebugProbe [deviceName=USB-Blaster-2, serialNumber=1, displayName=USB-Blaster [USB-0], probeType=null]
+
+!ENTRY com.ashling.riscfree.debug.opxd 1 0 2026-01-13 00:28:35.693
+!MESSAGE GDB SERVER COMMAND :C:\altera_lite\25.1std\riscfree\debugger\gdbserver-riscv\ash-riscv-gdb-server.exe --probe-type usb-blaster-2 --transport-type jtag --device 0x031050DD --auto-detect true --gdb-port 52840 --jtag-frequency 16000KHz --tap-number 1 --core-number 0 --instance 1 --attach-mode OFF
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2026-01-13 00:28:36.926
+!MESSAGE C:\altera_lite\25.1std\riscfree\RiscFree\/../toolchain/riscv32-unknown-elf/bin/riscv32-unknown-elf-gdb.exe --interpreter=mi2 --nx C:\Users\Mukund\Documents\FPGA_Projects\niosv_helloworld\software\app\build\Debug\app.elf
+
+!ENTRY com.ashling.riscfree.debug.utils 1 0 2026-01-13 00:35:40.787
+!MESSAGE Scanning debug probes
+
+!ENTRY com.ashling.riscfree.debug.utils 1 0 2026-01-13 00:35:40.977
+!MESSAGE DebugProbe [deviceName=USB-Blaster-2, serialNumber=1, displayName=USB-Blaster [USB-0], probeType=null]
+
+!ENTRY com.ashling.riscfree.debug.opxd 1 0 2026-01-13 00:35:41.140
+!MESSAGE GDB SERVER COMMAND :C:\altera_lite\25.1std\riscfree\debugger\gdbserver-riscv\ash-riscv-gdb-server.exe --probe-type usb-blaster-2 --transport-type jtag --device 0x031050DD --auto-detect true --gdb-port 49676 --jtag-frequency 16000KHz --tap-number 1 --core-number 0 --instance 1 --attach-mode OFF
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2026-01-13 00:35:42.309
+!MESSAGE C:\altera_lite\25.1std\riscfree\RiscFree\/../toolchain/riscv32-unknown-elf/bin/riscv32-unknown-elf-gdb.exe --interpreter=mi2 --nx C:\Users\Mukund\Documents\FPGA_Projects\niosv_helloworld\software\app\build\Debug\app.elf
+
+!ENTRY com.ashling.riscfree.debug.utils 1 0 2026-01-13 00:36:31.014
+!MESSAGE Scanning debug probes
+
+!ENTRY com.ashling.riscfree.debug.utils 1 0 2026-01-13 00:36:31.133
+!MESSAGE DebugProbe [deviceName=USB-Blaster-2, serialNumber=1, displayName=USB-Blaster [USB-0], probeType=null]
+
+!ENTRY com.ashling.riscfree.debug.opxd 1 0 2026-01-13 00:36:31.282
+!MESSAGE GDB SERVER COMMAND :C:\altera_lite\25.1std\riscfree\debugger\gdbserver-riscv\ash-riscv-gdb-server.exe --probe-type usb-blaster-2 --transport-type jtag --device 0x031050DD --auto-detect true --gdb-port 49691 --jtag-frequency 16000KHz --tap-number 1 --core-number 0 --instance 1 --attach-mode OFF
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2026-01-13 00:36:32.442
+!MESSAGE C:\altera_lite\25.1std\riscfree\RiscFree\/../toolchain/riscv32-unknown-elf/bin/riscv32-unknown-elf-gdb.exe --interpreter=mi2 --nx C:\Users\Mukund\Documents\FPGA_Projects\niosv_helloworld\software\app\build\Debug\app.elf
+
+!ENTRY org.eclipse.ui 4 0 2026-01-13 00:37:53.306
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "org.eclipse.swt.custom.StyledText.redraw()" because the return value of "org.eclipse.cdt.internal.ui.buildconsole.BuildConsoleViewer.getTextWidget()" is null
+	at org.eclipse.cdt.internal.ui.buildconsole.BuildConsoleManager.lambda$1(BuildConsoleManager.java:412)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4058)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3676)
+	at org.eclipse.swt.widgets.Display.release(Display.java:3751)
+	at org.eclipse.swt.graphics.Device.dispose(Device.java:335)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:168)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:143)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:109)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:439)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:271)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:668)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:605)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1481)
+
+!ENTRY org.eclipse.ui 4 0 2026-01-13 00:37:53.307
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "org.eclipse.swt.custom.StyledText.redraw()" because the return value of "org.eclipse.cdt.internal.ui.buildconsole.BuildConsoleViewer.getTextWidget()" is null
+	at org.eclipse.cdt.internal.ui.buildconsole.BuildConsoleManager.lambda$1(BuildConsoleManager.java:412)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4058)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3676)
+	at org.eclipse.swt.widgets.Display.release(Display.java:3751)
+	at org.eclipse.swt.graphics.Device.dispose(Device.java:335)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:168)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:143)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:109)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:439)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:271)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:668)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:605)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1481)
+
+!ENTRY org.eclipse.ui 4 0 2026-01-13 00:37:53.308
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "org.eclipse.swt.custom.StyledText.redraw()" because the return value of "org.eclipse.cdt.internal.ui.buildconsole.BuildConsoleViewer.getTextWidget()" is null
+	at org.eclipse.cdt.internal.ui.buildconsole.BuildConsoleManager.lambda$1(BuildConsoleManager.java:412)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4058)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3676)
+	at org.eclipse.swt.widgets.Display.release(Display.java:3751)
+	at org.eclipse.swt.graphics.Device.dispose(Device.java:335)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:168)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:143)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:109)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:439)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:271)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:668)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:605)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1481)
+
+!ENTRY org.eclipse.ui 4 0 2026-01-13 00:37:53.308
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "org.eclipse.swt.custom.StyledText.redraw()" because the return value of "org.eclipse.cdt.internal.ui.buildconsole.BuildConsoleViewer.getTextWidget()" is null
+	at org.eclipse.cdt.internal.ui.buildconsole.BuildConsoleManager.lambda$1(BuildConsoleManager.java:412)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4058)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3676)
+	at org.eclipse.swt.widgets.Display.release(Display.java:3751)
+	at org.eclipse.swt.graphics.Device.dispose(Device.java:335)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:168)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:143)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:109)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:439)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:271)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:668)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:605)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1481)
+
+!ENTRY org.eclipse.ui 4 0 2026-01-13 00:37:53.309
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "org.eclipse.swt.custom.StyledText.redraw()" because the return value of "org.eclipse.cdt.internal.ui.buildconsole.BuildConsoleViewer.getTextWidget()" is null
+	at org.eclipse.cdt.internal.ui.buildconsole.BuildConsoleManager.lambda$1(BuildConsoleManager.java:412)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4058)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3676)
+	at org.eclipse.swt.widgets.Display.release(Display.java:3751)
+	at org.eclipse.swt.graphics.Device.dispose(Device.java:335)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:168)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:143)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:109)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:439)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:271)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:668)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:605)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1481)
+
+!ENTRY org.eclipse.ui 4 0 2026-01-13 00:37:53.309
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "org.eclipse.swt.custom.StyledText.redraw()" because the return value of "org.eclipse.cdt.internal.ui.buildconsole.BuildConsoleViewer.getTextWidget()" is null
+	at org.eclipse.cdt.internal.ui.buildconsole.BuildConsoleManager.lambda$1(BuildConsoleManager.java:412)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4058)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3676)
+	at org.eclipse.swt.widgets.Display.release(Display.java:3751)
+	at org.eclipse.swt.graphics.Device.dispose(Device.java:335)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:168)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:143)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:109)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:439)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:271)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:668)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:605)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1481)
+
+!ENTRY org.eclipse.ui 4 0 2026-01-13 00:37:53.309
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "org.eclipse.swt.custom.StyledText.redraw()" because the return value of "org.eclipse.cdt.internal.ui.buildconsole.BuildConsoleViewer.getTextWidget()" is null
+	at org.eclipse.cdt.internal.ui.buildconsole.BuildConsoleManager.lambda$1(BuildConsoleManager.java:412)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4058)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3676)
+	at org.eclipse.swt.widgets.Display.release(Display.java:3751)
+	at org.eclipse.swt.graphics.Device.dispose(Device.java:335)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:168)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:143)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:109)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:439)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:271)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:668)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:605)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1481)
+
+!ENTRY org.eclipse.ui 4 0 2026-01-13 00:37:53.310
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "org.eclipse.swt.custom.StyledText.redraw()" because the return value of "org.eclipse.cdt.internal.ui.buildconsole.BuildConsoleViewer.getTextWidget()" is null
+	at org.eclipse.cdt.internal.ui.buildconsole.BuildConsoleManager.lambda$1(BuildConsoleManager.java:412)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4058)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3676)
+	at org.eclipse.swt.widgets.Display.release(Display.java:3751)
+	at org.eclipse.swt.graphics.Device.dispose(Device.java:335)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:168)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:143)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:109)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:439)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:271)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:668)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:605)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1481)
+
+!ENTRY org.eclipse.ui 4 0 2026-01-13 00:37:53.310
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "org.eclipse.swt.custom.StyledText.redraw()" because the return value of "org.eclipse.cdt.internal.ui.buildconsole.BuildConsoleViewer.getTextWidget()" is null
+	at org.eclipse.cdt.internal.ui.buildconsole.BuildConsoleManager.lambda$1(BuildConsoleManager.java:412)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4058)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3676)
+	at org.eclipse.swt.widgets.Display.release(Display.java:3751)
+	at org.eclipse.swt.graphics.Device.dispose(Device.java:335)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:168)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:143)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:109)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:439)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:271)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:668)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:605)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1481)
+
+!ENTRY org.eclipse.ui 4 0 2026-01-13 00:37:53.310
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "org.eclipse.swt.custom.StyledText.redraw()" because the return value of "org.eclipse.cdt.internal.ui.buildconsole.BuildConsoleViewer.getTextWidget()" is null
+	at org.eclipse.cdt.internal.ui.buildconsole.BuildConsoleManager.lambda$1(BuildConsoleManager.java:412)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4058)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3676)
+	at org.eclipse.swt.widgets.Display.release(Display.java:3751)
+	at org.eclipse.swt.graphics.Device.dispose(Device.java:335)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:168)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:143)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:109)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:439)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:271)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:668)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:605)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1481)
+
+!ENTRY org.eclipse.ui 4 0 2026-01-13 00:37:53.311
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "org.eclipse.swt.custom.StyledText.redraw()" because the return value of "org.eclipse.cdt.internal.ui.buildconsole.BuildConsoleViewer.getTextWidget()" is null
+	at org.eclipse.cdt.internal.ui.buildconsole.BuildConsoleManager.lambda$1(BuildConsoleManager.java:412)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4058)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3676)
+	at org.eclipse.swt.widgets.Display.release(Display.java:3751)
+	at org.eclipse.swt.graphics.Device.dispose(Device.java:335)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:168)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:143)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:109)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:439)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:271)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:668)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:605)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1481)
+
+!ENTRY org.eclipse.ui 4 0 2026-01-13 00:37:53.311
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "org.eclipse.swt.custom.StyledText.redraw()" because the return value of "org.eclipse.cdt.internal.ui.buildconsole.BuildConsoleViewer.getTextWidget()" is null
+	at org.eclipse.cdt.internal.ui.buildconsole.BuildConsoleManager.lambda$1(BuildConsoleManager.java:412)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4058)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3676)
+	at org.eclipse.swt.widgets.Display.release(Display.java:3751)
+	at org.eclipse.swt.graphics.Device.dispose(Device.java:335)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:168)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:143)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:109)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:439)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:271)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:668)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:605)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1481)
+
+!ENTRY org.eclipse.cdt.core 4 0 2026-01-13 00:37:53.526
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Exception in org.eclipse.cdt.core.CCorePlugin.stop() of bundle org.eclipse.cdt.core.
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:923)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.stopWorker0(EquinoxBundle.java:1071)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.stopWorker(EquinoxBundle.java:392)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:695)
+	at org.eclipse.osgi.container.Module.stop(Module.java:554)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.decStartLevel(ModuleContainer.java:2116)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1986)
+	at org.eclipse.osgi.container.SystemModule.stopWorker(SystemModule.java:281)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule.stopWorker(EquinoxBundle.java:222)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:695)
+	at org.eclipse.osgi.container.Module.stop(Module.java:554)
+	at org.eclipse.osgi.container.SystemModule.stop(SystemModule.java:212)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:240)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.lang.NullPointerException: Cannot invoke "org.eclipse.core.runtime.content.IContentTypeManager.removeContentTypeChangeListener(org.eclipse.core.runtime.content.IContentTypeManager$IContentTypeChangeListener)" because the return value of "org.eclipse.core.runtime.Platform.getContentTypeManager()" is null
+	at org.eclipse.cdt.internal.core.model.CModelManager.shutdown(CModelManager.java:1378)
+	at org.eclipse.cdt.core.model.CoreModel.shutdown(CoreModel.java:1156)
+	at org.eclipse.cdt.core.CCorePlugin.stop(CCorePlugin.java:375)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$3.run(BundleContextImpl.java:903)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$3.run(BundleContextImpl.java:1)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:571)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:895)
+	... 13 more
+Root exception:
+java.lang.NullPointerException: Cannot invoke "org.eclipse.core.runtime.content.IContentTypeManager.removeContentTypeChangeListener(org.eclipse.core.runtime.content.IContentTypeManager$IContentTypeChangeListener)" because the return value of "org.eclipse.core.runtime.Platform.getContentTypeManager()" is null
+	at org.eclipse.cdt.internal.core.model.CModelManager.shutdown(CModelManager.java:1378)
+	at org.eclipse.cdt.core.model.CoreModel.shutdown(CoreModel.java:1156)
+	at org.eclipse.cdt.core.CCorePlugin.stop(CCorePlugin.java:375)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$3.run(BundleContextImpl.java:903)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$3.run(BundleContextImpl.java:1)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:571)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:895)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.stopWorker0(EquinoxBundle.java:1071)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.stopWorker(EquinoxBundle.java:392)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:695)
+	at org.eclipse.osgi.container.Module.stop(Module.java:554)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.decStartLevel(ModuleContainer.java:2116)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1986)
+	at org.eclipse.osgi.container.SystemModule.stopWorker(SystemModule.java:281)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule.stopWorker(EquinoxBundle.java:222)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:695)
+	at org.eclipse.osgi.container.Module.stop(Module.java:554)
+	at org.eclipse.osgi.container.SystemModule.stop(SystemModule.java:212)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:240)
+	at java.base/java.lang.Thread.run(Thread.java:1583)

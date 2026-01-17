@@ -1,0 +1,6 @@
+
+int main(void)
+{
+	print("Hello Nios V World\n");
+	return 0;
+}
