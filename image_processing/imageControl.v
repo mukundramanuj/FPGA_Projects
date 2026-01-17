@@ -1,119 +1,78 @@
+// This module takes one pixel of image at a time,
+// fills the line buffers and outputs successive 
+// 3x3 pixel matrices which is fed as i/p to convolution module later on
 module imageControl(
-input i_clk,
-input i_rst,
-input [7:0] i_pixel_data,
-input i_pixel_data_valid,
-output reg [71:0] o_pixel_data, // o_pixel_data becomes the input to the MAC module
-output o_pixel_data_valid);
+	input 				i_clk,
+	input 				i_rst,
+	input [7:0] 		i_pixel_data,
+	input 				i_pixel_data_valid,
+	output reg [71:0] o_pixel_data,
+	output 				o_pixel_data_valid
+);
 
-reg [8:0] pixelCounter;
-reg [1:0] currentLineBuffer;
-reg [3:0] lineBufferDataValid;
-reg [3:0] lineBuffRdData;
-reg [1:0] currentRdLineBuffer;
+// Image Constants
+ parameter IMG_WIDTH  = 200;
+ parameter IMG_HEIGHT = 200;
 
-wire [23:0] lb0data;
-wire [23:0] lb1data;
-wire [23:0] lb2data;
-wire [23:0] lb3data;
-
-always @(posedge i_clk)
-begin
-  if(i_rst)
-    pixelCounter <= 0;
-  else begin
-    if(i_pixel_data_valid)
-      pixelCounter <= pixelCounter + 1;
-  end
-end
-
-always @(posedge i_clk) begin
-  if (i_rst)
-    currentLineBuffer <= 0;
-  else begin
-    if (pixelCounter == 511 & i_pixel_data_valid) // condition for 512th pixel entering line buffer
-      currentLineBuffer <= currentLineBuffer + 1;
-  end
-end
-
-always @(*)
-begin
-  lineBufferDataValid = 4'h0;
-  lineBufferDataValid[currentLineBuffer] = i_pixel_data_valid;
-end
-
-always @(posedge i_clk) begin
-  if(i_rst) 
-    rdCounter <= 0;
-  else begin
-    if(rd_line_buffer)
-      rdCounter <= rdCounter + 1;
-  end
-end
-
-always @(posedge i_clk)
-begin
-  if(i_rst) begin
-    currentRdLineBuffer <= 0;
-  end
-  else begin
-    if(rdCounter == 511 & rd_line_buffer)
-      currentRdLineBuffer <= currentRdLineBuffer + 1;
-  end
+// Internal Signals
+reg lb_data_valid [3:0];
+reg [1:0] lb_data_valid_index;
+reg [7:0] pixelCounter;
+	 
+always @(posedge vga_clk) begin
+	if (i_rst)
+		pixelCounter <= 8'b0;
+	else if(wr == IMAGE_WIDTH)
+		pixelCounter <= 8'b0;
+	else
+		pixelCounter <= pixelCounter + 1;
 end
 
 
-always @(*)
-begin
-  case(currentRdLineBuffer)
-    0: begin 
-      o_pixel_data = {lb2data,lb1data,lb0data}
-    end
-    1: begin 
-      o_pixel_data = {lb3data,lb2data,lb1data}
-    end
-    2: begin 
-      o_pixel_data = {lb0data,lb3data,lb2data}
-    end
-    3: begin 
-      o_pixel_data = {lb1data,lb0data,lb3data}
-    end
-  endcase
+always @(posedge vga_clk) begin
+	if (i_rst)
+		lb_data_valid_index <= 0; // enables i_pixel_data to go to lb0
+	else if (pixelCounter == IMAGE_WIDTH-1 & i_pixel_data_valid)
+		lb_data_valid_index <= lb_data_valid_index + 1; // if lb_data_valid_index is 11, adding another 1 makes it 100 but MSB is dropped making it 00
 end
 
-always @(*)
-begin
-  
+always @(posedge vga_clk) begin
+		lb_data_valid = 4'h0;
+		lb_data_valid[lb_data_valid_index] <= 1'b1;
 end
 
-lineBuffer lB0(
+// instantiating line buffers 
+lineBuffer lb0(
 .i_clk(i_clk),
 .i_rst(i_rst),
 .i_data(i_pixel_data),
-.i_data_valid(lineBufferDataValid[0]),
-.o_data(lb0data),
-.i_rd_data(lineBuffRdData[0]));
+.i_data_valid(lb_data_valid[0]),
+.o_data(), 
+.i_rd_data());
 
-lineBuffer lB1(
+lineBuffer lb1(
 .i_clk(i_clk),
 .i_rst(i_rst),
 .i_data(i_pixel_data),
-.i_data_valid(lineBufferDataValid[1]),
-.o_data(lb1data),
-.i_rd_data(lineBuffRdData[1]));
+.i_data_valid(lb_data_valid[1]),
+.o_data(), 
+.i_rd_data());
 
-lineBuffer lB2(
+lineBuffer lb2(
 .i_clk(i_clk),
 .i_rst(i_rst),
 .i_data(i_pixel_data),
-.i_data_valid(lineBufferDataValid[2]),
-.o_data(lb2data),
-.i_rd_data(lineBuffRdData[2]));
+.i_data_valid(lb_data_valid[2]),
+.o_data(), 
+.i_rd_data());
 
-lineBuffer lB3(
+lineBuffer lb3(
 .i_clk(i_clk),
 .i_rst(i_rst),
 .i_data(i_pixel_data),
-.i_data_valid(lineBufferDataValid[3]),
-.o_data(lb3data),
-.i_rd_data(lineBuffRdData[3]));
+.i_data_valid(lb_data_valid[3]),
+.o_data(), 
+.i_rd_data());
+
+
+
