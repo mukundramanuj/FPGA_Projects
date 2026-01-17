@@ -6,9 +6,9 @@ input i_data_valid,
 output [23:0] o_data, // 3 pixels (8-bpp)
 input i_rd_data); // if i_rd_data is high => read mode
 
-reg [7:0] line [511:0]; // actual line buffer memory where pixel data is stored
-reg [8:0] wrPntr;
-reg [8:0] rdPntr;
+reg [7:0] line [255:0]; // actual line buffer memory where pixel data is stored
+reg [7:0] wrPntr;
+reg [7:0] rdPntr;
 
 // write operation
 always @(posedge i_clk)

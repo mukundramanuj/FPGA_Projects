@@ -11,68 +11,81 @@ module imageControl(
 );
 
 // Image Constants
- parameter IMG_WIDTH  = 200;
+ parameter IMG_WIDTH  = 256;
  parameter IMG_HEIGHT = 200;
+ parameter PIXELS_IN_3LBS = 600;
 
+//********************  writing to the line buffer  ********************
 // Internal Signals
-reg lb_data_valid [3:0];
-reg [1:0] lb_data_valid_index;
+reg select_lb_write [3:0];
+reg [1:0] select_lb_write_index;
 reg [7:0] pixelCounter;
 	 
 always @(posedge vga_clk) begin
-	if (i_rst)
+	if (i_rst || pixelCounter == IMAGE_WIDTH - 1)
 		pixelCounter <= 8'b0;
-	else if(wr == IMAGE_WIDTH)
-		pixelCounter <= 8'b0;
-	else
+	else if (i_pixel_data_valid)
 		pixelCounter <= pixelCounter + 1;
 end
 
 
 always @(posedge vga_clk) begin
 	if (i_rst)
-		lb_data_valid_index <= 0; // enables i_pixel_data to go to lb0
-	else if (pixelCounter == IMAGE_WIDTH-1 & i_pixel_data_valid)
-		lb_data_valid_index <= lb_data_valid_index + 1; // if lb_data_valid_index is 11, adding another 1 makes it 100 but MSB is dropped making it 00
+		select_lb_write_index <= 0; // enables i_pixel_data to go to lb0
+	else if (pixelCounter == IMAGE_WIDTH-1 && i_pixel_data_valid)
+		select_lb_write_index <= select_lb_write_index + 1; // if select_lb_write_index is 11, adding another 1 makes it 100 but MSB is dropped making it 00
 end
 
-always @(posedge vga_clk) begin
-		lb_data_valid = 4'h0;
-		lb_data_valid[lb_data_valid_index] <= 1'b1;
+always @(*) begin
+		select_lb_write = 4'h0;
+		select_lb_write[select_lb_write_index] <= i_pixel_data_valid;
 end
+
+// ***************** reading from the line buffer *********************
+reg select_lb_read [3:0];
+reg [1:0] select_first_lb_read_index;
+reg [9:0] totalPixelCounter;
+reg [7:0] read_window_counter;
+wire [23:0] lb0_data;
+wire [23:0] lb1_data;
+wire [23:0] lb2_data;
+wire [23:0] lb3_data;
+reg read_line_buffer;
+
+
 
 // instantiating line buffers 
 lineBuffer lb0(
 .i_clk(i_clk),
 .i_rst(i_rst),
 .i_data(i_pixel_data),
-.i_data_valid(lb_data_valid[0]),
-.o_data(), 
-.i_rd_data());
+.i_data_valid(select_lb_write[0]),
+.o_data(lb0_data), 
+.i_rd_data(select_lb_read[0]));
 
 lineBuffer lb1(
 .i_clk(i_clk),
 .i_rst(i_rst),
 .i_data(i_pixel_data),
-.i_data_valid(lb_data_valid[1]),
-.o_data(), 
-.i_rd_data());
+.i_data_valid(select_lb_write[1]),
+.o_data(lb1_data), 
+.i_rd_data(select_lb_read[1]));
 
 lineBuffer lb2(
 .i_clk(i_clk),
 .i_rst(i_rst),
 .i_data(i_pixel_data),
-.i_data_valid(lb_data_valid[2]),
-.o_data(), 
-.i_rd_data());
+.i_data_valid(select_lb_write[2]),
+.o_data(lb2_data), 
+.i_rd_data(select_lb_read[2]));
 
 lineBuffer lb3(
 .i_clk(i_clk),
 .i_rst(i_rst),
 .i_data(i_pixel_data),
-.i_data_valid(lb_data_valid[3]),
-.o_data(), 
-.i_rd_data());
+.i_data_valid(select_lb_write[3]),
+.o_data(lb3_data), 
+.i_rd_data(select_lb_read[3]));
 
 
 
