@@ -17,22 +17,22 @@ module image_control(
 // Internal Signals
 reg lb_data_valid [3:0];
 reg [1:0] lb_data_valid_index;
-reg [7:0] wrPtr;
+reg [7:0] pixelCounter;
 	 
 always @(posedge vga_clk) begin
 	if (i_rst)
-		wrPtr <= 8'b0;
+		pixelCounter <= 8'b0;
 	else if(wr == IMAGE_WIDTH)
-		wrPtr <= 8'b0;
+		pixelCounter <= 8'b0;
 	else
-		wrPtr <= wrPtr + 1;
+		pixelCounter <= pixelCounter + 1;
 end
 
 
 always @(posedge vga_clk) begin
 	if (i_rst)
 		lb_data_valid_index <= 0; // enables i_pixel_data to go to lb0
-	else if (wrPtr == IMAGE_WIDTH-1 & i_pixel_data_valid)
+	else if (pixelCounter == IMAGE_WIDTH-1 & i_pixel_data_valid)
 		lb_data_valid_index <= lb_data_valid_index + 1; // if lb_data_valid_index is 11, adding another 1 makes it 100 but MSB is dropped making it 00
 end
 
