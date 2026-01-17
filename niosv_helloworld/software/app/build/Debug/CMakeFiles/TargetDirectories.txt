@@ -1,9 +1,0 @@
-C:/Users/Mukund/Documents/FPGA_Projects/niosv_helloworld/software/app/build/Debug/CMakeFiles/app.elf.dir
-C:/Users/Mukund/Documents/FPGA_Projects/niosv_helloworld/software/app/build/Debug/CMakeFiles/create-objdump.dir
-C:/Users/Mukund/Documents/FPGA_Projects/niosv_helloworld/software/app/build/Debug/CMakeFiles/niosv-stack-report.dir
-C:/Users/Mukund/Documents/FPGA_Projects/niosv_helloworld/software/app/build/Debug/CMakeFiles/create-hex.dir
-C:/Users/Mukund/Documents/FPGA_Projects/niosv_helloworld/software/app/build/Debug/CMakeFiles/edit_cache.dir
-C:/Users/Mukund/Documents/FPGA_Projects/niosv_helloworld/software/app/build/Debug/CMakeFiles/rebuild_cache.dir
-C:/Users/Mukund/Documents/FPGA_Projects/niosv_helloworld/software/app/build/Debug/bsp/CMakeFiles/hal2_bsp.dir
-C:/Users/Mukund/Documents/FPGA_Projects/niosv_helloworld/software/app/build/Debug/bsp/CMakeFiles/edit_cache.dir
-C:/Users/Mukund/Documents/FPGA_Projects/niosv_helloworld/software/app/build/Debug/bsp/CMakeFiles/rebuild_cache.dir
