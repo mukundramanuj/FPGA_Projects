@@ -7,7 +7,7 @@ output [23:0] o_data, // 3 pixels (8-bpp)
 input i_rd_data); // if i_rd_data is high => read mode
 
 reg [7:0] line [255:0]; // actual line buffer memory where pixel data is stored
-reg [7:0] wrPntr;
+reg [7:0] wrPntr; // 0 to 255 addresses => if incremented beyond 255, overflows to 0
 reg [7:0] rdPntr;
 
 // write operation

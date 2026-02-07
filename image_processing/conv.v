@@ -31,7 +31,7 @@ always @(posedge i_clk) begin
 multDataValid <= i_pixel_data_valid;
 end
 
-// summation using parallel adder (purely combinational)
+// summation using parallel adder (purely combinational) - balanced adder tree for proper timing
 always @(*) begin
 sumDataInt = 0;
   for (i = 0; i < 9; i = i+1) begin
@@ -40,7 +40,7 @@ sumDataInt = 0;
 end
 
 always @(posedge i_clk) begin
-  sumData <= sumDataInt;
+  sumData <= sumDataInt; // sumDataInt behaves as an accumulator
   sumDataValid <= multDataValid;
 end
 

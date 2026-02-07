@@ -83,29 +83,7 @@ image_mem rom_inst (
   .q       (rom_data)
 );
  
-lineBuffer lb0(
-.i_clk(i_clk),
-.i_rst(i_rst),
-.i_data(lb_data[0]),
-.i_data_valid(i_data_valid),
-.o_data(), 
-.i_rd_data());
 
-lineBuffer lb1(
-.i_clk(i_clk),
-.i_rst(i_rst),
-.i_data(lb_data[1]),
-.i_data_valid(i_data_valid),
-.o_data(), 
-.i_rd_data());
-
-lineBuffer lb2(
-.i_clk(i_clk),
-.i_rst(i_rst),
-.i_data(lb_data[2]),
-.i_data_valid(i_data_valid),
-.o_data(), 
-.i_rd_data());
 
 
 
