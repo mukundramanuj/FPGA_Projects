@@ -13,7 +13,7 @@ module imagePatchProvider(
 
 // Image Constants
  parameter IMG_WIDTH  = 256;
- parameter IMG_HEIGHT = 200;
+ parameter IMG_HEIGHT = 250;
  parameter PIXELS_IN_3_LINE_BUFFERS = 768; // IMG_WIDTH * 3
 
 //********************  writing to the line buffer  ********************

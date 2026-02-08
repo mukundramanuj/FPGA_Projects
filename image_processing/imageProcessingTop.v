@@ -23,7 +23,7 @@ parameter V_TOTAL   = 525;
 
 // Image Constants
 parameter IMG_WIDTH  = 256;
-parameter IMG_HEIGHT = 200;
+parameter IMG_HEIGHT = 250;
 
 // Internal Signals,
 wire vga_clk;          // 25.175 MHz from PLL
@@ -35,7 +35,6 @@ reg [7:0] rom_v; // ROM row counter
 reg       rom_data_valid; // indicates when the data arrives from ROM (usually one clock after rom_addr is given)
 
 //PLL Instance ---
-//Note: Ensure your PLL IP 'inclk0' is set to 50MHz in the Wizard
 sync_clk pll_inst (
 .inclk0 (MAX10_CLK1_50),
 .c0     (vga_clk)
@@ -49,10 +48,6 @@ image_mem rom_inst (
 );
 
 // -------------------------IMAGE PROCESSING LOGIC---------------------------------
-// Capture greyscale image, as is
-wire [3:0] raw_r = rom_data[7:4];
-wire [3:0] raw_g = rom_data[7:4];
-wire [3:0] raw_b = rom_data[7:4];
 
 // h and v counters initialization
 reg [9:0] h_cnt = 0;
@@ -81,7 +76,7 @@ reg [3:0] img_on_d;
 wire vga_hs_raw = (h_cnt >= (H_VISIBLE + H_FRONT) && h_cnt < (H_VISIBLE + H_FRONT + H_SYNC)) ? 1'b0 : 1'b1;
 wire vga_vs_raw = (v_cnt >= (V_VISIBLE + V_FRONT) && v_cnt < (V_VISIBLE + V_FRONT + V_SYNC)) ? 1'b0 : 1'b1;
 
-// --- 4. Video Display Logic ---
+// --- Video Display Logic ---
 wire video_on = (h_cnt < H_VISIBLE) && (v_cnt < V_VISIBLE);
 // Check if we are inside the image bounds (drawing at top-left 0,0)
 wire img_on = (h_cnt < IMG_WIDTH) && (v_cnt < IMG_HEIGHT);
