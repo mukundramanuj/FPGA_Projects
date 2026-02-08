@@ -94,7 +94,6 @@ always @(posedge i_clk) begin
 					if (readCounter == IMG_WIDTH - 1) begin // all three line buffers not yet filled, so wait
 						rdState <= IDLE;
 						rd_line_buffers <= 1'b0;
-					end
 				end
 		endcase
 	end

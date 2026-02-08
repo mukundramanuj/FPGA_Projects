@@ -3,7 +3,7 @@
 module conv(
   input i_clk,
   input [71:0] i_pixel_data,
-  input i_pixel_data_valid,
+  input reg i_pixel_data_valid,
   output reg [7:0] o_convolved_data,
   output reg o_convolved_data_valid
 );
