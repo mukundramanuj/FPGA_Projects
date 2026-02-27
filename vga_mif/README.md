@@ -2,7 +2,7 @@
 
 # Real-Time Image Processing Pipeline on FPGA (DE10-Lite)
 
-This project implements a versatile real-time image processing pipeline using Verilog HDL. It performs a variety of point operations—ranging from color space manipulation to brightness/contrast adjustments—on a 12-bit color image. The system is optimized for the **Intel/Terasic DE10-Lite** and outputs results via VGA.
+This project implements a real-time image processing pipeline using Verilog HDL. It performs a variety of point operations—ranging from color space manipulation to brightness/contrast adjustments—on a 12-bit color image. The system is designed for the **Intel/Terasic DE10-Lite** and outputs results via VGA.
 
 ##  Project Demo
 
@@ -17,13 +17,12 @@ The pipeline processes 12-bit color data (4-bits each for Red, Green, and Blue) 
 * **Grayscale Conversion**: Transforms RGB data into luminance values.
 * **Inversion (Negative)**: Flips pixel intensities for a film-negative effect.
 * **Thresholding**: Binarizes the image based on a specific intensity limit.
-* **Sepia Tone**: Applies a warm, nostalgic color filter.
 * **Color Isolation**: Specifically isolates or masks certain color channels.
 * **Brightness & Contrast Control**: Multi-level cascading adjustments to fine-tune the visual output.
 
 ---
 
-##  System Architecture
+##  System Design
 
 The design follows a synchronous data path where pixels are fetched from memory and passed through a series of combinational and sequential logic blocks before reaching the VGA DAC.
 
@@ -35,9 +34,8 @@ The image is stored in on-chip Block RAM (M9K blocks) accessed via an Intel IP-g
 
 The operations are organized into a pipeline:
 
-* **Stage 1: Color Transformation**: Logic for Sepia, Grayscale, and Inversion.
-* **Stage 2: Nonlinear Mapping**: Thresholding logic.
-* **Stage 3: Gain & Offset**: Brightness ($Pixel + Offset$) and Contrast ($Pixel \times Gain$) adjustments.
+* **Stage 1: Color Transformation**: Logic for Color Channel Isolation, Grayscale, Thresholding and Inversion.
+* **Stage 2: Gain & Offset**: Brightness ($Pixel + Offset$) and Contrast ($Pixel \times Gain$) adjustments.
 
 ### 3. VGA Synchronization
 
@@ -50,7 +48,7 @@ The filtered output is synchronized to a **25.175 MHz** clock, supporting a **64
 | File | Description |
 | --- | --- |
 | **`vga_mif.v`** | The consolidated top-level Verilog module containing the ROM instantiation, filter logic, and VGA timing. |
-| **`image.mif`** | Memory Initialization File containing the source 12-bit image data. |
+| **`img_out1.mif`** | Memory Initialization File containing the source 12-bit image data. |
 
 ---
 
@@ -62,7 +60,7 @@ The filtered output is synchronized to a **25.175 MHz** clock, supporting a **64
 
 
 2. **Software**:
-* Intel Quartus Prime (Lite Edition).
+* Intel Quartus Prime 25.1 (Lite Edition).
 
 
 3. **Setup**:
