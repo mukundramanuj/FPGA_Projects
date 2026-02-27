@@ -1,18 +1,16 @@
-This is a comprehensive `README.md` tailored to your project. It highlights the hardware architecture, the specific data flow you described, and includes the technical specifications of the DE10-Lite and VGA interface.
-
 ---
 
 # Real-Time Sobel Edge Detection on FPGA (DE10-Lite)
 
 This project implements a real-time **Sobel Edge Detection** filter using Verilog HDL. The system is designed for the **Intel/Terasic DE10-Lite (MAX 10)** FPGA board. It processes a grayscale image stored in on-chip memory and outputs the edge-detected result via VGA at a 640x480 resolution.
 
-## 📺 Project Demo
+##  Project Demo
 
 [![Video Title](https://img.youtube.com/vi/KiFZCrfJaR8/0.jpg)](https://www.youtube.com/watch?v=KiFZCrfJaR8)
 
 ---
 
-## 🛠 Architecture Overview
+##  Architecture Overview
 
 The system utilizes a pipelined architecture to perform spatial convolution in real-time. The data flow is as follows:
 
@@ -25,7 +23,7 @@ The system utilizes a pipelined architecture to perform spatial convolution in r
 
 ---
 
-## 📁 File Descriptions
+##  File Descriptions
 
 | File | Description |
 | --- | --- |
@@ -37,7 +35,7 @@ The system utilizes a pipelined architecture to perform spatial convolution in r
 
 ---
 
-## 🚀 Hardware Specifications
+##  Hardware Specifications
 
 * **FPGA**: Intel MAX 10 10M50DAF484C7G
 * **Resolution**: 640 x 480 pixels
@@ -47,7 +45,7 @@ The system utilizes a pipelined architecture to perform spatial convolution in r
 
 ---
 
-## 🛠 How to Run
+##  How to Run
 
 1. **Clone the repository**:
 ```bash
@@ -64,6 +62,6 @@ git clone https://github.com/mukundramanuj/FPGA_Projects.git
 
 ---
 
-## 📝 Author
+##  Author
 
 **Mukund Ramanuj** - [GitHub Profile](https://www.google.com/search?q=https://github.com/mukundramanuj)

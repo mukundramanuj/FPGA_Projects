@@ -1,18 +1,16 @@
-Since this project focuses on **Pixel-Level Point Operations** (unlike the spatial filtering in your Sobel project), this `README.md` emphasizes the mathematical transformations and the hardware multiplexing logic used to switch between effects.
-
 ---
 
 # Real-Time Image Processing Pipeline on FPGA (DE10-Lite)
 
 This project implements a versatile real-time image processing pipeline using Verilog HDL. It performs a variety of point operations—ranging from color space manipulation to brightness/contrast adjustments—on a 12-bit color image. The system is optimized for the **Intel/Terasic DE10-Lite** and outputs results via VGA.
 
-## 📺 Project Demo
+##  Project Demo
 
 [![Video Title](https://img.youtube.com/vi/SDydJATNgUU/0.jpg)](https://www.youtube.com/watch?v=SDydJATNgUU)
 
 ---
 
-## 🛠 Features & Image Operations
+##  Features & Image Operations
 
 The pipeline processes 12-bit color data (4-bits each for Red, Green, and Blue) stored in a `.mif` ROM. The following operations are implemented:
 
@@ -25,7 +23,7 @@ The pipeline processes 12-bit color data (4-bits each for Red, Green, and Blue) 
 
 ---
 
-## 🏗 System Architecture
+##  System Architecture
 
 The design follows a synchronous data path where pixels are fetched from memory and passed through a series of combinational and sequential logic blocks before reaching the VGA DAC.
 
@@ -47,7 +45,7 @@ The filtered output is synchronized to a **25.175 MHz** clock, supporting a **64
 
 ---
 
-## 📁 Repository Structure
+##  Repository Structure
 
 | File | Description |
 | --- | --- |
@@ -56,7 +54,7 @@ The filtered output is synchronized to a **25.175 MHz** clock, supporting a **64
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 1. **Hardware Requirements**:
 * Terasic DE10-Lite FPGA Board.
@@ -77,10 +75,8 @@ The filtered output is synchronized to a **25.175 MHz** clock, supporting a **64
 
 ---
 
-## 📝 Author
+##  Author
 
 **Mukund Ramanuj** - [GitHub Profile](https://www.google.com/search?q=https://github.com/mukundramanuj)
 
 ---
-
-**Would you like me to help you create a table of the specific FPGA pin assignments for the DE10-Lite switches so users know how to toggle these filters?**
