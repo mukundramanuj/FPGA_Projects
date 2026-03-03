@@ -6,6 +6,7 @@ simulation/
 greybox_tmp/
 hc_output/
 _output_files/
+counter_7_segment/
 
 # Quartus-generated files
 *.bak
