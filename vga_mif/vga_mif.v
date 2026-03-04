@@ -5,7 +5,11 @@ module vga_mif (
 	 input brightness,
 	 input invert,
 	 input threshold,
-	 input sepia,
+	 input green_channel,
+	 input posterize,
+	 input shadow_boost,
+	 input warm_mode,
+	 input cold_mode,
 	 input button_inc, 
 	 input button_dec,
 	 output [3:0] VGA_R,    // Red 4-bit
@@ -75,6 +79,32 @@ module vga_mif (
 	 wire [3:0] night_r = 4'd0;
 	 wire [3:0] night_g = raw_g;
 	 wire [3:0] night_b = 4'd0;
+	 
+	 // 7. Posterization
+	 wire [3:0] post_r = {raw_r[3:2], 2'b00};
+    wire [3:0] post_g = {raw_g[3:2], 2'b00};
+    wire [3:0] post_b = {raw_b[3:2], 2'b00};
+	 
+	 // 8. Shadow boost - brightens the shadow areas by adding 2
+	 wire [3:0] shadow_r = (raw_r < 4) ? raw_r + 2 : raw_r;
+    wire [3:0] shadow_g = (raw_g < 4) ? raw_g + 2 : raw_g;
+    wire [3:0] shadow_b = (raw_b < 4) ? raw_b + 2 : raw_b;
+
+	 // 9. Warm filter (fixed)
+	wire [4:0] warm_r_temp = raw_r + 3;
+	wire [4:0] warm_g_temp = raw_g + 1;
+
+	wire [3:0] warm_r = (warm_r_temp > 15) ? 15 : warm_r_temp[3:0];
+	wire [3:0] warm_g = (warm_g_temp > 15) ? 15 : warm_g_temp[3:0];
+	wire [3:0] warm_b = (raw_b > 2) ? raw_b - 2 : 0;
+
+	// 10. Cold filter (fixed)
+	wire [4:0] cold_g_temp = raw_g + 1;
+	wire [4:0] cold_b_temp = raw_b + 3;
+
+	wire [3:0] cold_r = (raw_r > 2) ? raw_r - 2 : 0;
+	wire [3:0] cold_g = (cold_g_temp > 15) ? 15 : cold_g_temp[3:0];
+	wire [3:0] cold_b = (cold_b_temp > 15) ? 15 : cold_b_temp[3:0];
 	 //-------------------------------------------------------------------------------------
 
 	 
@@ -160,12 +190,32 @@ module vga_mif (
 				filtered_g = bw_pixel;
 				filtered_b = bw_pixel;
 		  end
-		  else if (sepia) begin
+		  else if (green_channel) begin
 				// Processed Mode: Color channel isolation
 				filtered_r = night_r;
 				filtered_g = night_g;
 				filtered_b = night_b;
 		  end
+		  else if (posterize) begin
+        filtered_r = post_r;
+        filtered_g = post_g;
+        filtered_b = post_b;
+		 end
+		 else if (shadow_boost) begin
+			  filtered_r = shadow_r;
+			  filtered_g = shadow_g;
+			  filtered_b = shadow_b;
+		 end
+		 else if (warm_mode) begin
+			  filtered_r = warm_r;
+			  filtered_g = warm_g;
+			  filtered_b = warm_b;
+		 end
+		 else if (cold_mode) begin
+			  filtered_r = cold_r;
+			  filtered_g = cold_g;
+			  filtered_b = cold_b;
+		 end
     end
 	
 	
