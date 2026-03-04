@@ -18,6 +18,10 @@ The pipeline processes 12-bit color data (4-bits each for Red, Green, and Blue) 
 * **Inversion (Negative)**: Flips pixel intensities for a film-negative effect.
 * **Thresholding**: Binarizes the image based on a specific intensity limit.
 * **Color Isolation**: Specifically isolates or masks certain color channels.
+* **Posterization**: Creates a poster effect by removing LSBs.
+* **Shadow boost**: Increases brightness of areas with high shadow.
+* **Warmth increase**: Increases value of red channel and decreases value of blue channel to give a warm effect.
+* **Coolness increases**: Increases value of blue channel and decreases value of red channel to give a cooling effect.
 * **Brightness & Contrast Control**: Multi-level cascading adjustments to fine-tune the visual output.
 
 ---
@@ -34,7 +38,7 @@ The image is stored in on-chip Block RAM (M9K blocks) accessed via an Intel IP-g
 
 The operations are organized into a pipeline:
 
-* **Stage 1: Color Transformation**: Logic for Color Channel Isolation, Grayscale, Thresholding and Inversion.
+* **Stage 1: Color Transformation**: Logic for Color Channel Isolation, Grayscale, Thresholding, Posterizing, Shadow Boost, Warmth or Cool effects and Inversion.
 * **Stage 2: Gain & Offset**: Brightness ($Pixel + Offset$) and Contrast ($Pixel \times Gain$) adjustments.
 
 ### 3. VGA Synchronization
