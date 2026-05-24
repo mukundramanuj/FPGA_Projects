@@ -1,5 +1,5 @@
 module vga_mif (
-    input  MAX10_CLK1_50,	 // 50MHz onboard clock
+    input  MAX10_CLK1_50,	 // 50MHz clock
 	 input greyscale,
 	 input contrast,
 	 input brightness,
@@ -70,12 +70,9 @@ module vga_mif (
 	 // 5. thresholding (binarization)
 	 wire [5:0] luma = raw_r + raw_g + raw_b; // Combined intensity
 	 wire [3:0] thresh_val = 4'd20; // Mid-point of the sum (0 to 45)
-
 	 wire [3:0] bw_pixel = (luma > thresh_val) ? 4'd15 : 4'd0;
-	 // Assign bw_pixel to R, G, and B to see it on screen.
 	 
-	 // 6. color channel isolation (tinting)
-	 // Night Vision (Green channel only)- "sepia" effect
+	 // 6. color channel isolation (green channel only)
 	 wire [3:0] night_r = 4'd0;
 	 wire [3:0] night_g = raw_g;
 	 wire [3:0] night_b = 4'd0;
@@ -113,15 +110,14 @@ module vga_mif (
     reg [9:0] h_cnt = 0;
     reg [9:0] v_cnt = 0;
 
-    // --- 1. PLL Instance ---
-    // Note: Ensure your PLL IP 'inclk0' is set to 50MHz in the Wizard
+    // PLL Instance
     sync_clk pll_inst (
         .inclk0 (MAX10_CLK1_50), 
         .c0     (vga_clk),    
         .c1     ()            
     );
 
-    // --- 2. ROM Instance ---
+    // ROM Instance
     image_mem rom_inst (
         .address (rom_addr),
         .clock   (vga_clk),
@@ -130,7 +126,7 @@ module vga_mif (
         .q       (rom_data)
     );
 
-    // --- 3. Sync Generation ---
+    // Sync Generation
     always @(posedge vga_clk) begin
         if (h_cnt < H_TOTAL - 1) 
             h_cnt <= h_cnt + 1;
@@ -146,7 +142,7 @@ module vga_mif (
     assign VGA_HS = (h_cnt >= (H_VISIBLE + H_FRONT) && h_cnt < (H_VISIBLE + H_FRONT + H_SYNC)) ? 1'b0 : 1'b1;
     assign VGA_VS = (v_cnt >= (V_VISIBLE + V_FRONT) && v_cnt < (V_VISIBLE + V_FRONT + V_SYNC)) ? 1'b0 : 1'b1;
 
-    // --- 4. Video Display Logic ---
+    // Video Display Logic
     wire video_on = (h_cnt < H_VISIBLE) && (v_cnt < V_VISIBLE);
     
     // Check if we are inside the image bounds (drawing at top-left 0,0)
@@ -159,7 +155,7 @@ module vga_mif (
             rom_addr <= 0;
     end
 
-   // --- 5. Image Processing Multiplexer ---
+   // Image Processing Multiplexer
 	 reg [3:0] filtered_r, filtered_g, filtered_b;
     always @(*) begin
 		  filtered_r = raw_r;
@@ -167,51 +163,55 @@ module vga_mif (
 	     filtered_b = raw_b;
 	 
         if (greyscale) begin
-            // Processed Mode: Grayscale
+            // Grayscale
             filtered_r = gray;
             filtered_g = gray;
             filtered_b = gray;
         end
         else if (contrast) begin
-				// Processed Mode: Contrast Adjustment
+				// Contrast Adjustment
 				filtered_r = (r_cont_15 > 5'd15) ? 4'd15 : r_cont_15[3:0];
 				filtered_g = (g_cont_15 > 5'd15) ? 4'd15 : g_cont_15[3:0];
 				filtered_b = (b_cont_15 > 5'd15) ? 4'd15 : b_cont_15[3:0];
 		  end
 		  else if (invert) begin
-				// Processed Mode: Inversion
+				// Inversion
 				filtered_r = inv_r;
 				filtered_g = inv_g;
 				filtered_b = inv_b;
 		  end
 		  else if (threshold) begin
-				// Processed Mode: Thresholding
+				// Thresholding
 				filtered_r = bw_pixel;
 				filtered_g = bw_pixel;
 				filtered_b = bw_pixel;
 		  end
 		  else if (green_channel) begin
-				// Processed Mode: Color channel isolation
+				// Color channel isolation
 				filtered_r = night_r;
 				filtered_g = night_g;
 				filtered_b = night_b;
 		  end
 		  else if (posterize) begin
-        filtered_r = post_r;
-        filtered_g = post_g;
-        filtered_b = post_b;
+				// Posterization
+				filtered_r = post_r;
+				filtered_g = post_g;
+				filtered_b = post_b;
 		 end
 		 else if (shadow_boost) begin
+				// Shadow boost
 			  filtered_r = shadow_r;
 			  filtered_g = shadow_g;
 			  filtered_b = shadow_b;
 		 end
 		 else if (warm_mode) begin
+				// Warm filter
 			  filtered_r = warm_r;
 			  filtered_g = warm_g;
 			  filtered_b = warm_b;
 		 end
 		 else if (cold_mode) begin
+				// Cool filter
 			  filtered_r = cold_r;
 			  filtered_g = cold_g;
 			  filtered_b = cold_b;
@@ -223,7 +223,7 @@ module vga_mif (
 	reg [3:0] bright_offset = 4'd0;
 	
 	// Contrast adjustment stage
-	reg [3:0] contrast_multiplier = 4'd1; // default contrast multiplier value is always 1 and can never be 0
+	reg [3:0] contrast_multiplier = 4'd1; // default contrast multiplier value is always 1
 
 	reg b_inc_prev, b_dec_prev;
 	
@@ -254,7 +254,7 @@ module vga_mif (
 	end
 	
 
-	// --- 2. Data Path (Apply the offset to EVERY pixel instantly) ---
+	// Data Path (Apply the offset to EVERY pixel instantly)
 	wire [4:0] r_calc_brightness = filtered_r + bright_offset;
 	wire [4:0] g_calc_brightness = filtered_g + bright_offset;
 	wire [4:0] b_calc_brightness = filtered_b + bright_offset;

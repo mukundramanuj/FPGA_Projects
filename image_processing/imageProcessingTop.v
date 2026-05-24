@@ -68,7 +68,7 @@ end
 
 // --- Pipeline Synchronization Delay ---
 // The processing pipeline (IPP + Sobel) has a 4-cycle latency.
-// We must delay the VGA sync signals so the monitor timing matches the data arrival.
+// VGA sync signals are delayed so the monitor timing matches the data arrival.
 reg [3:0] h_sync_d, v_sync_d;
 reg [3:0] video_on_d;
 reg [3:0] img_on_d;
@@ -78,7 +78,7 @@ wire vga_vs_raw = (v_cnt >= (V_VISIBLE + V_FRONT) && v_cnt < (V_VISIBLE + V_FRON
 
 // --- Video Display Logic ---
 wire video_on = (h_cnt < H_VISIBLE) && (v_cnt < V_VISIBLE);
-// Check if we are inside the image bounds (drawing at top-left 0,0)
+// Check if pointer is inside the image bounds (drawing at top-left 0,0)
 wire img_on = (h_cnt < IMG_WIDTH) && (v_cnt < IMG_HEIGHT);
 
 always @(posedge vga_clk) begin
@@ -97,8 +97,7 @@ wire is_priming_v = (v_cnt >= V_TOTAL - 3); // Rows 522, 523, 524
 wire is_visible_v = (v_cnt < IMG_HEIGHT);   // Rows 0 to 255
 wire is_active_h  = (h_cnt < IMG_WIDTH);    // Pixels 0 to 199
 
-// The ROM only runs when we are in the 256-pixel "window"
-// of a row we care about (Priming or Visible).
+// The ROM only runs when inside the 256-pixel "window" of a row we care about (Priming or Visible).
 wire rom_running = (is_priming_v || is_visible_v) && is_active_h;
 
 always @(posedge vga_clk) begin
@@ -125,7 +124,7 @@ always @(posedge vga_clk) begin
 	rom_data_valid <= rom_running;
 end
 
-// Your ROM address is then calculated from these custom counters
+// ROM address is then calculated from these custom counters
 // assign rom_addr = (rom_v * IMG_WIDTH) + rom_h;
 
 always @(*) begin
@@ -143,7 +142,7 @@ imagePatchProvider IPP(
 	.i_rst(~i_rst), // Inverted for Active Low button (KEY0)
 	.i_pixel_data(rom_data),
 	.i_pixel_data_valid(rom_data_valid),
-	// We use the raw 'img_on' to start the read pipeline.
+	// uses the raw 'img_on' to start the read pipeline.
 	// The data will emerge 4 cycles later, matching 'img_on_d[3]'.
 	.i_read_enable(img_on), 
 	.o_pixel_data(pixel_patch_data),
@@ -160,7 +159,7 @@ sobel SBL(
 );
 
 // Final o/p signal assignments
-// Use the DELAYED video signals to match the pipeline data
+// uses the DELAYED video signals to match the pipeline data
 assign VGA_R = (video_on_d[3] && img_on_d[3] && filtered_data_valid) ? filtered_data[7:4] : 4'b0;
 assign VGA_G = (video_on_d[3] && img_on_d[3] && filtered_data_valid) ? filtered_data[7:4] : 4'b0;
 assign VGA_B = (video_on_d[3] && img_on_d[3] && filtered_data_valid) ? filtered_data[7:4] : 4'b0;

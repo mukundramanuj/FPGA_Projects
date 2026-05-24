@@ -28,7 +28,7 @@ begin
 end
 
 // assignment of output done sequentially to avoid 1 clock cycle latency during read operation
-// Use Clamp-to-Edge boundary replication for a cleaner visual result
+// Uses Clamp-to-Edge boundary replication for a cleaner visual result
 wire [7:0] idx0 = rdPntr;
 wire [7:0] idx1 = (rdPntr == 8'd255) ? 8'd255 : (rdPntr + 8'd1);
 wire [7:0] idx2 = (rdPntr >= 8'd254) ? 8'd255 : (rdPntr + 8'd2);
